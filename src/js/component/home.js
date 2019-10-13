@@ -9,7 +9,8 @@ export class Home extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			value: ""
+			value: "",
+			tareas: ["No tasks, add a task"]
 		};
 
 		this.controlaCambio = this.controlaCambio.bind(this);
@@ -20,7 +21,9 @@ export class Home extends React.Component {
 	}
 
 	controlaSubmit(evento) {
-		alert("Submision correcta");
+		const nuevaTarea = this.state.tareas.slice();
+		nuevaTarea.push(this.state.value);
+		this.setState({ tareas: nuevaTarea });
 		evento.preventDefault();
 	}
 
@@ -28,7 +31,7 @@ export class Home extends React.Component {
 		return (
 			<div className="text-center mt-5">
 				<h1>todos</h1>
-
+				<p>{this.state.tareas}</p>
 				<Input
 					value={this.state.value}
 					controlCambio={this.controlaCambio}
