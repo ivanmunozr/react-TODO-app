@@ -10,13 +10,7 @@ export class Home extends React.Component {
 		super();
 		this.state = {
 			value: "",
-			tareas: [
-				"No tasks, add a task",
-				"Tarea 1",
-				"Tarea 2",
-				"Tarea 3",
-				"Tarea 4"
-			]
+			tareas: []
 		};
 
 		this.controlaCambio = this.controlaCambio.bind(this);
@@ -43,6 +37,7 @@ export class Home extends React.Component {
 
 	render() {
 		const contador = this.state.tareas.length;
+		const tareasVacio = this.state.tareas.length > 0;
 
 		return (
 			<div className="text-center mt-5">
@@ -52,11 +47,19 @@ export class Home extends React.Component {
 					controlCambio={this.controlaCambio}
 					controlSubmitt={this.controlaSubmit}
 				/>
-				<Lista
-					contador={contador}
-					lista={this.state.tareas}
-					elimina={this.eliminaTarea}
-				/>
+				{tareasVacio ? (
+					<Lista
+						contador={contador}
+						lista={this.state.tareas}
+						elimina={this.eliminaTarea}
+						muestraBoton={this.toggleHover}
+						estadoHover={this.state.hover}
+					/>
+				) : (
+					<ul>
+						<li>Agrega una tarea</li>
+					</ul>
+				)}
 			</div>
 		);
 	}

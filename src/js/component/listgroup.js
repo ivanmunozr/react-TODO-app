@@ -7,8 +7,7 @@ export class Lista extends React.Component {
 
 	render() {
 		let listaTareas = this.props.lista.map((item, index) => (
-			<li className="list-group-item">
-				{index}
+			<li key={index} className="list-group-item">
 				{item}
 				<button
 					type="button"
