@@ -4,8 +4,6 @@ export class Input extends React.Component {
 	render() {
 		return (
 			<div>
-				<p>{this.props.value}</p>
-
 				<form onSubmit={this.props.controlSubmitt}>
 					<input
 						className="form-control"

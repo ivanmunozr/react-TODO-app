@@ -7,7 +7,7 @@ export class Lista extends React.Component {
 
 	render() {
 		let listaTareas = this.props.lista.map((item, index) => (
-			<li key={index} className="list-group-item">
+			<li key={index} className="list-group-item text-left">
 				{item}
 				<button
 					type="button"
@@ -22,7 +22,7 @@ export class Lista extends React.Component {
 		return (
 			<div className="card">
 				<ul className="list-group list-group-flush">{listaTareas}</ul>
-				<div className="card-footer text-muted">
+				<div className="card-footer text-muted text-left">
 					{this.props.contador} item left
 				</div>
 			</div>
